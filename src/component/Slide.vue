@@ -12,7 +12,7 @@
             <p class="time">{{item.time}}</p>
           </div>
         </div>
-        <div class="delete" @click="" :data-index="index">删除</div>
+        <div class="delete"  :data-index="index">删除</div>
       </li>
     </ul>
   </div>
@@ -35,8 +35,10 @@
           this.SlideData = SlideData;
         },
         ins(){
+          console.log(this.isSlide());
           if(this.isSlide()){//如果当前处于滑动状态，更新所有状态变成原始状态
             this.upDate();
+            return
           }
         },
         touchStart(e){
@@ -66,16 +68,14 @@
           for(var i=0;i<oli.length;i++){
             if(oli[i].dataset.type == '1'){
               return true
-            }else{
-              return false;
             }
           }
+          return false;
         },
       },
   }
 
 </script>
-
 <style scoped>
  ul,li{list-style:none;}
  .list-item{
